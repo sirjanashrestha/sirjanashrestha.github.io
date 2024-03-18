@@ -19,16 +19,10 @@ StreamLit URL: https://kick-and-punch-classifier.streamlit.app/
 
 GitHub repository: https://github.com/sirjanashrestha/kick-and-punch-detection
 
-### Introduction
-The MMA industry is undergoing rapid expansion, marked by a global upsurge in viewership and engagement. However, in contrast to other sports, the sports analytics domain within MMA remains nascent, presenting a promising avenue for pioneering solutions. Performance analysis in MMA is intricate, owing to the diverse spectrum of skills involved, often reliant on human expertise. Recognizing this void, we propose an innovative concept: an advanced classifier app engineered to precisely discern and categorize kicks and punches using video and image processing. This app stands to be a transformative tool for MMA contests.
-
-Moreover, this app promises manifold advantages to coaches, referees, and the data driven realm of player statistics. Coaches could harness real-time insights to tailor training regimens, pinpoint strengths, and mitigate weaknesses, ushering in elevated athlete preparation. Referees, grappling with split-second decisions, would gain an unprecedented aid in judging fight dynamics accurately, ensuring fair outcomes. The app's ability to generate comprehensive player statistics fuels data-driven performance evaluation, facilitating informed strategy development and insightful post-fight assessments. As MMA continues its ascent, this app emerges as a game-changer, and reshaping the landscape of sports analytics.
-
 ### Data
+We curated a custom dataset from the ground up, immersing ourselves in MMA videos on YouTube capturing screenshots.This comprehensive dataset encompasses four distinct classes: "kick," "kicknt" (no touch), "punch," and "punchnt" (no touch).
 
-We curated a custom dataset from the ground up, immersing ourselves in MMA videos on YouTube and meticulously capturing screenshots. Complementing this, we embarked on a quest for diverse fight images from across the internet. This comprehensive dataset encompasses four distinct classes: "kick," "kicknt" (no touch), "punch," and "punchnt" (no touch).
-
-To expedite the image classification process and optimize dataset division, we harnessed the power of the Roboflow tool. Its capabilities proved instrumental, delivering an exceedingly efficient and user-intuitive solution. The utilization of Roboflow empowered us to systematically arrange, annotate, and categorize the images, rendering it a valuable asset and aiding our project's success.
+To expedite the image classification process and optimize dataset division, we used Roboflow tool which helped us to systematically arrange, annotate, and categorize the images.
 
 Tha dataset can be downloaded from: https://universe.roboflow.com/georgebrown/punch-and-kick-detection-group
 
@@ -94,14 +88,10 @@ for i, image in enumerate(images[: 9]):
     plt.imshow(image)
     plt.axis('off')
 ```
-
-
     
 ![png](/assets/img/punch_kick/Report_files//Report_17_0.png)
 
     
-
-
 ## Experiments
 
 ## First, we trained 6 models with 4 classes
