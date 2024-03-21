@@ -13,7 +13,7 @@ ALBERT is a transformer-based language representation model developed by Google.
 
 In this project, I am using amazon review dataset to perform sentiment analysis using a pre-trained ALBERT model sourced from the Hugging Face library. 
 
-Data Source: url = "https://s3.amazonaws.com/fast-ai-nlp/amazon_review_full_csv.tgz"
+Data Source: url = ["https://s3.amazonaws.com/fast-ai-nlp/amazon_review_full_csv.tgz"]("https://s3.amazonaws.com/fast-ai-nlp/amazon_review_full_csv.tgz")
 
 ### Installing dependencies
 
