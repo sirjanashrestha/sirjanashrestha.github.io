@@ -182,7 +182,7 @@ def stationarity_test(timeseries):
     # Plot rolling statistic
     plt.figure(figsize= (10,6))
     plt.xlabel('Years')
-    plt.ylabel('Price of Bitcoin')    
+    plt.ylabel('ETH price (CAD)')    
     plt.title('Stationary Test: Rolling Mean and Standard Deviation')
     plt.plot(timeseries, color= 'blue', label= 'Original')
     plt.plot(rolling_mean, color= 'green', label= 'Rolling Mean')
@@ -237,7 +237,7 @@ The differencing technique is employed to eliminate both trend and seasonality f
 ```python
 df_diff = df.diff(periods = 1) # First order differencing
 plt.xlabel('Years')
-plt.ylabel('Price of Bitcoin')    
+plt.ylabel('ETH price (CAD)')    
 plt.title('Convert Non Stationary Data to Stationary Data using Differencing ')
 plt.plot(df_diff)
 ```
