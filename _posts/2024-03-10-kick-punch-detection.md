@@ -5,7 +5,7 @@ date: 2024-03-10 13:32:20 +0300
 description:  # Add post description (optional)
 img: 1.png # Add image post (optional)
 fig-caption: # Add figcaption (optional)
-tags: [Object detection, YOLOV8, Roboflow, Streamlit]
+tags: [Image classification, YOLOV8, Roboflow, Streamlit]
 ---
 This project focuses on developing a classifier to identify kicks and punches in MMA fights using a dataset consisting of 597 annotated images captured from raw MMA fights using Roboflow. Initially, we trained six models (VGG, Resnet50, InceptionResnetV2, MobileNetV2 , EfficientNetB0 , YoloV8) with four image classes: kick, punch, kicknt (kick no touch), and punchnt (punch no touch). However, these models only achieved an average accuracy of 30%, and despite making various attempts at data augmentation and using different models for training, we couldn't improve their performance.
 
@@ -15,16 +15,16 @@ In an effort to further enhance the performance, we decided to experiment with t
 
 Among the six models we trained, YOLOV8 model was the best performer with the accuracy of 75% and EfficientNET was the least performer with accuracy of  53.12%. We have also created a Streamlit app for kick and punch classifier using YOLOV8 model.
 
-StreamLit URL: https://kick-and-punch-classifier.streamlit.app/
+StreamLit URL: [https://kick-and-punch-classifier.streamlit.app/](https://kick-and-punch-classifier.streamlit.app/)
 
-GitHub repository: https://github.com/sirjanashrestha/kick-and-punch-detection
+GitHub repository: [https://github.com/sirjanashrestha/kick-and-punch-detection](https://github.com/sirjanashrestha/kick-and-punch-detection)
 
 ### Data
-We curated a custom dataset from the ground up, immersing ourselves in MMA videos on YouTube capturing screenshots.This comprehensive dataset encompasses four distinct classes: "kick," "kicknt" (no touch), "punch," and "punchnt" (no touch).
+We created a custom dataset from the ground up, immersing ourselves in MMA videos on YouTube capturing screenshots.This comprehensive dataset encompasses four distinct classes: "kick," "kicknt" (no touch), "punch," and "punchnt" (no touch).
 
 To expedite the image classification process and optimize dataset division, we used Roboflow tool which helped us to systematically arrange, annotate, and categorize the images.
 
-Tha dataset can be downloaded from: https://universe.roboflow.com/georgebrown/punch-and-kick-detection-group
+Tha dataset can be downloaded from: [https://universe.roboflow.com/georgebrown/punch-and-kick-detection-group](https://universe.roboflow.com/georgebrown/punch-and-kick-detection-group)
 
 #### Our dataset and classes
 ```python
@@ -58,10 +58,6 @@ show_sample_images(train_path, classes, num_samples_per_class)
     
 
 ### Methods
-
-In order to optimize performance, we explored a range of image classification models, namely VGG, Resnet50, InceptionResnetV2, MobileNetV2 , EfficientNetB0 and YoloV8. The four distinct classes we chose were kick, punch, kicknt (kick no touch), and punchnt (punch no touch). The intricacy of the four classes was compounded by their similarity and it often led the model to confusion. Unexpectedly, the introduction of dropout, a technique aimed at enhancing robustness, paradoxically resulted in reduced model accuracy. Despite employing data augmentation techniques, our progress encountered a barrier, resulting in an average accuracy plateau of 30%.
-
-In order to address this problem, we strategically simplified the classification by eliminating kicknt and punchnt classes, refocusing solely on kick and punch. This recalibration yielded a remarkable transformation, catapulting our average accuracy across all models by an impressive 30%. To elevate performance even further, we embarked on a fresh avenue of experimentation – the YoloV8n classify model. To ensure fair comparisons, we conducted experiments using both the original four-class dataset and the simplified two-class dataset, aiming to find the most optimal solution.
 
 ##### Our dataset with data augmentation
 
@@ -877,7 +873,6 @@ results = predict(source)  # predict on an image
 
 ### Conclusion
 
-Through an exploration of prominent image classification models, including VGG, ResNet50, InceptionResNetV2, MobileNetV2, EfficientNetB0, and YOLOv8, we encountered a complex challenge driven by the intricate similarities among the four classes: kick, punch, kicknt, and punchnt. Surprisingly, introducing dropout hindered rather than enhanced accuracy, leading to a performance plateau of 30% despite data augmentation. We focused on kick and punch classes alone and it resulted in a remarkable 30% accuracy improvement across models. Further experimentation with YOLOv8n, comparing the original four-class dataset with a simplified two-class version, consistently demonstrated YOLOv8n's superior accuracy, cementing its role as the optimal solution for our specific task and validating our efforts.
+We looked at different image classification models like VGG, ResNet50, InceptionResNetV2, MobileNetV2, EfficientNetB0, and YOLOv8. We had a tough time because the classes we were trying to classify, like kick, punch, kicknt, and punchnt, were very similar. Surprisingly, when we tried to improve accuracy by adding dropout (a technique to prevent overfitting), it didn't help much and our accuracy stayed around 30%, even with data augmentation. So, we decided to focus only on the kick and punch classes. This made a big difference, and our accuracy improved by 30% across all models!
 
-Link to Streamlit app: https://kick-and-punch-classifier.streamlit.app/
-
+Then, we tried a model called YOLOv8n, comparing the original dataset with all four classes to a simpler one with just kick and punch. YOLOv8n consistently gave better accuracy with the simplified dataset, showing that it's the best choice for our specific task.

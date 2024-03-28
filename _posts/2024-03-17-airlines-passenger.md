@@ -7,11 +7,10 @@ img: airlines.png # Add image post (optional)
 fig-caption: # Add figcaption (optional)
 tags: [Supervised learning, Decision Tree]
 ---
-# Background
 Customer satisfaction plays a crucial role in determining business performance and serves as a strategic tool for gaining a competitive edge. Using machine learning models on a dataset from an American airline, this project predicts passenger satisfaction with airline services, highlighting key factors influencing satisfaction and provides actionable recommendations for enhancing customer experience across different flight categories and passenger classes.
 
 ## Data Source
-Data used in this study is the passenger satisfaction data set of an American airline on Kaggle (https://www.kaggle.com/binaryjoker/airline-passenger-satisfaction) 
+Data used in this study is the passenger satisfaction data set of an American airline on Kaggle [https://www.kaggle.com/binaryjoker/airline-passenger-satisfaction](https://www.kaggle.com/binaryjoker/airline-passenger-satisfaction) 
 
 ## Exploratory data analysis
 The dataset contains 129880 samples. 

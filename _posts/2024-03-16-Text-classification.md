@@ -7,8 +7,6 @@ img: text.png # Add image post (optional)
 fig-caption: # Add figcaption (optional)
 tags: [Text classification, Sentiment Analysis, AlbertV5, Huggingface]
 ---
-# Background
-
 ALBERT is a transformer-based language representation model developed by Google. ALBERT aims to provide a more efficient and compact architecture compared to BERT while maintaining competitive performance on various NLP tasks.
 
 In this project, I am using amazon review dataset to perform sentiment analysis using a pre-trained ALBERT model sourced from the Hugging Face library. 
