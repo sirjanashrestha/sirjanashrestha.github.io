@@ -476,7 +476,7 @@ plt.show()
 
 
     
-![png](age_prediction_files/age_prediction_19_0.png)
+![png](/assets/img/age_prediction_files/age_prediction_19_0.png)
     
 
 
@@ -920,13 +920,13 @@ plt.show()
 
 
     
-![png](age_prediction_files/age_prediction_36_0.png)
+![png](/assets/img/age_prediction_files/age_prediction_36_0.png)
     
 
 
 
     
-![png](age_prediction_files/age_prediction_36_1.png)
+![png](/assets/img/age_prediction_files/age_prediction_36_1.png)
     
 
 
@@ -990,7 +990,7 @@ plt.show()
 
 
     
-![png](age_prediction_files/age_prediction_41_0.png)
+![png](/assets/img/age_prediction_files/age_prediction_41_0.png)
     
 
 
