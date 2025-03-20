@@ -11,7 +11,7 @@ tags: [XGBoost, Predictive modeling, hyperparameter tuning]
 
 This project aims to predict the life expectancy of individuals based on a range of health and lifestyle factors. By analyzing data that includes variables such as age, weight, sex, height, systolic blood pressure, smoking habits, use of other nicotine products, and the number of medications taken, the goal is to identify patterns that can help estimate life expectancy. The dataset includes both male and female participants, capturing diverse health profiles across different ages. By building a predictive model, this project hopes to provide insights into how lifestyle choices and medical factors impact longevity, ultimately contributing to better health predictions and personalized healthcare interventions.
 
-Data Source: https://www.kaggle.com/datasets/joannpineda/individual-age-of-death-and-related-factors/data
+Data Source: url=["https://www.kaggle.com/datasets/joannpineda/individual-age-of-death-and-related-factors/data"]("https://www.kaggle.com/datasets/joannpineda/individual-age-of-death-and-related-factors/data")
 
 
 ```python
@@ -27,179 +27,7 @@ import seaborn as sns
 ```python
 ## Read the json file into pandas datarame
 df=pd.read_json('data.json')
-df.head()
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>weight</th>
-      <th>sex</th>
-      <th>height</th>
-      <th>sys_bp</th>
-      <th>smoker</th>
-      <th>nic_other</th>
-      <th>num_meds</th>
-      <th>occup_danger</th>
-      <th>ls_danger</th>
-      <th>...</th>
-      <th>addiction</th>
-      <th>major_surgery_num</th>
-      <th>diabetes</th>
-      <th>hds</th>
-      <th>cholesterol</th>
-      <th>asthma</th>
-      <th>immune_defic</th>
-      <th>family_cancer</th>
-      <th>family_heart_disease</th>
-      <th>family_cholesterol</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>100</td>
-      <td>219</td>
-      <td>m</td>
-      <td>74</td>
-      <td>136</td>
-      <td>n</td>
-      <td>n</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>...</td>
-      <td>n</td>
-      <td>0</td>
-      <td>n</td>
-      <td>y</td>
-      <td>203</td>
-      <td>n</td>
-      <td>n</td>
-      <td>y</td>
-      <td>n</td>
-      <td>y</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>66</td>
-      <td>242</td>
-      <td>m</td>
-      <td>73</td>
-      <td>111</td>
-      <td>n</td>
-      <td>n</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>...</td>
-      <td>y</td>
-      <td>0</td>
-      <td>n</td>
-      <td>n</td>
-      <td>228</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>31</td>
-      <td>197</td>
-      <td>f</td>
-      <td>65</td>
-      <td>112</td>
-      <td>n</td>
-      <td>n</td>
-      <td>7</td>
-      <td>1</td>
-      <td>2</td>
-      <td>...</td>
-      <td>y</td>
-      <td>3</td>
-      <td>n</td>
-      <td>y</td>
-      <td>183</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>42</td>
-      <td>244</td>
-      <td>f</td>
-      <td>69</td>
-      <td>127</td>
-      <td>n</td>
-      <td>n</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>...</td>
-      <td>n</td>
-      <td>2</td>
-      <td>n</td>
-      <td>y</td>
-      <td>228</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>93</td>
-      <td>183</td>
-      <td>f</td>
-      <td>63</td>
-      <td>91</td>
-      <td>y</td>
-      <td>n</td>
-      <td>2</td>
-      <td>3</td>
-      <td>3</td>
-      <td>...</td>
-      <td>y</td>
-      <td>2</td>
-      <td>n</td>
-      <td>n</td>
-      <td>169</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-      <td>n</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 24 columns</p>
-</div>
-
 
 
 ### Data Preprocessing
@@ -286,182 +114,6 @@ df['family_cholesterol'] = df['family_cholesterol'].map({'n': 0, 'y': 1})
 ```
 
 
-```python
-df.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>weight</th>
-      <th>sex</th>
-      <th>height</th>
-      <th>sys_bp</th>
-      <th>smoker</th>
-      <th>nic_other</th>
-      <th>num_meds</th>
-      <th>occup_danger</th>
-      <th>ls_danger</th>
-      <th>...</th>
-      <th>major_surgery_num</th>
-      <th>diabetes</th>
-      <th>hds</th>
-      <th>cholesterol</th>
-      <th>asthma</th>
-      <th>immune_defic</th>
-      <th>family_cancer</th>
-      <th>family_heart_disease</th>
-      <th>family_cholesterol</th>
-      <th>bmi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>100</td>
-      <td>219</td>
-      <td>1</td>
-      <td>74</td>
-      <td>136</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>203</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>28.114865</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>66</td>
-      <td>242</td>
-      <td>1</td>
-      <td>73</td>
-      <td>111</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>228</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>31.924564</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>31</td>
-      <td>197</td>
-      <td>0</td>
-      <td>65</td>
-      <td>112</td>
-      <td>0</td>
-      <td>0</td>
-      <td>7</td>
-      <td>1</td>
-      <td>2</td>
-      <td>...</td>
-      <td>3</td>
-      <td>0</td>
-      <td>1</td>
-      <td>183</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>32.778935</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>42</td>
-      <td>244</td>
-      <td>0</td>
-      <td>69</td>
-      <td>127</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>...</td>
-      <td>2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>228</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>36.028565</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>93</td>
-      <td>183</td>
-      <td>0</td>
-      <td>63</td>
-      <td>91</td>
-      <td>1</td>
-      <td>0</td>
-      <td>2</td>
-      <td>3</td>
-      <td>3</td>
-      <td>...</td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>169</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>32.413454</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 25 columns</p>
-</div>
-
-
-
 In this project, I am applying XGBoost model for the prediction so, I am not applying feature scaling on the numerical variables. ince XGBoost is a tree-based algorithm, feature scaling is not necessary for the numerical variables. Tree-based models like XGBoost work by splitting the data at specific values (thresholds) of the features to make decisions, rather than relying on distances between data points, as seen in distance-based algorithms like KNN or SVM. Because of this, the scale of the numerical features does not affect the performance of the model. Therefore, I will skip the feature scaling step for the numerical variables in this analysis.
 
 #### 4. Target variable distribution
@@ -474,259 +126,9 @@ plt.title("Age at Death Distribution")
 plt.show()
 ```
 
-
     
 ![png](/assets/img/age_prediction_files/age_prediction_19_0.png)
     
-
-
-
-```python
-df.describe()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>weight</th>
-      <th>sex</th>
-      <th>height</th>
-      <th>sys_bp</th>
-      <th>smoker</th>
-      <th>nic_other</th>
-      <th>num_meds</th>
-      <th>occup_danger</th>
-      <th>ls_danger</th>
-      <th>...</th>
-      <th>major_surgery_num</th>
-      <th>diabetes</th>
-      <th>hds</th>
-      <th>cholesterol</th>
-      <th>asthma</th>
-      <th>immune_defic</th>
-      <th>family_cancer</th>
-      <th>family_heart_disease</th>
-      <th>family_cholesterol</th>
-      <th>bmi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>10000.00000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.0000</td>
-      <td>...</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.0000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-      <td>10000.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>64.63570</td>
-      <td>214.725500</td>
-      <td>0.496600</td>
-      <td>67.237100</td>
-      <td>126.482400</td>
-      <td>0.200600</td>
-      <td>0.202500</td>
-      <td>4.590500</td>
-      <td>1.996800</td>
-      <td>2.0056</td>
-      <td>...</td>
-      <td>4.170900</td>
-      <td>0.107200</td>
-      <td>0.465200</td>
-      <td>199.736100</td>
-      <td>0.078200</td>
-      <td>0.031200</td>
-      <td>0.3513</td>
-      <td>0.126900</td>
-      <td>0.184000</td>
-      <td>33.466639</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>23.19368</td>
-      <td>35.624989</td>
-      <td>0.500013</td>
-      <td>3.897127</td>
-      <td>14.279162</td>
-      <td>0.400469</td>
-      <td>0.401883</td>
-      <td>5.512372</td>
-      <td>0.819425</td>
-      <td>0.8166</td>
-      <td>...</td>
-      <td>2.964013</td>
-      <td>0.309383</td>
-      <td>0.498812</td>
-      <td>35.633212</td>
-      <td>0.268499</td>
-      <td>0.173867</td>
-      <td>0.4774</td>
-      <td>0.332878</td>
-      <td>0.387504</td>
-      <td>5.338924</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>25.00000</td>
-      <td>97.000000</td>
-      <td>0.000000</td>
-      <td>53.000000</td>
-      <td>67.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>1.0000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>83.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>15.758580</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>46.00000</td>
-      <td>190.000000</td>
-      <td>0.000000</td>
-      <td>64.000000</td>
-      <td>117.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>1.0000</td>
-      <td>...</td>
-      <td>2.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>175.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>29.832310</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>64.00000</td>
-      <td>214.000000</td>
-      <td>0.000000</td>
-      <td>67.000000</td>
-      <td>126.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>3.000000</td>
-      <td>2.000000</td>
-      <td>2.0000</td>
-      <td>...</td>
-      <td>4.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>199.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>33.284898</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>82.00000</td>
-      <td>238.000000</td>
-      <td>1.000000</td>
-      <td>70.000000</td>
-      <td>136.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>7.000000</td>
-      <td>3.000000</td>
-      <td>3.0000</td>
-      <td>...</td>
-      <td>6.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>223.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.0000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>36.841522</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>120.00000</td>
-      <td>366.000000</td>
-      <td>1.000000</td>
-      <td>82.000000</td>
-      <td>180.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>53.000000</td>
-      <td>3.000000</td>
-      <td>3.0000</td>
-      <td>...</td>
-      <td>16.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>351.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.0000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>54.921875</td>
-    </tr>
-  </tbody>
-</table>
-<p>8 rows × 25 columns</p>
-</div>
-
 
 
 I wanted to see if the distribution of target variable is skewed i.e. if the dataset has similar age at death, the model might be biased towards mean or median. In such case, we have to consider applying log transformation of the target variable. However, after plotting the distribution, I observed that age at death is slightly right-skewed, indicating that the mean age is marginally higher than the median. Given this slight skew, I have decided not to apply a log transformation to the target variable, as the skewness is not severe enough to warrant a transformation that would distort the data.
@@ -762,12 +164,6 @@ import xgboost as xgb
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 ```
 
-    Requirement already satisfied: xgboost in /Users/zunushrestha/opt/anaconda3/envs/machinelearn/lib/python3.8/site-packages (2.1.4)
-    Requirement already satisfied: scipy in /Users/zunushrestha/opt/anaconda3/envs/machinelearn/lib/python3.8/site-packages (from xgboost) (1.10.0)
-    Requirement already satisfied: numpy in /Users/zunushrestha/opt/anaconda3/envs/machinelearn/lib/python3.8/site-packages (from xgboost) (1.23.5)
-
-
-
 ```python
 model = xgb.XGBRegressor(
     n_estimators=100,  # Number of boosting rounds (trees)
@@ -780,8 +176,6 @@ model = xgb.XGBRegressor(
 # Train the model
 model.fit(X_train, y_train)
 ```
-
-
 
 
 <style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>XGBRegressor(base_score=None, booster=None, callbacks=None,
@@ -944,8 +338,8 @@ feature_importances = best_model.feature_importances_
 # Method 2: Using the booster object to get feature importance with different importance types (e.g., weight, gain)
 booster = best_model.get_booster()
 
-# Feature importances (gain, weight, and cover)
-importance = booster.get_score(importance_type='weight')  # You can also use 'gain' or 'cover'
+# Calculate feature importances
+importance = booster.get_score(importance_type='weight')
 importance_df = pd.DataFrame({
     'feature': list(importance.keys()),
     'importance': list(importance.values())
@@ -1003,7 +397,7 @@ sample3 = [[150, 3, 0, 0, 10, 1, 180, 30.0, 0, 0, 2, 1, 1, 0, 0, 0, 1, 0, 1, 1, 
 sample4 = [[110, 2, 2, 2, 5, 6, 125, 28.0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1]]
 sample5 = [[160, 4, 1, 1, 12, 1, 200, 32.0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1]]
 
-# Predicting and rounding the results
+# Prediction of the age at death based on best_model
 print(round(best_model.predict(sample1)[0]))
 print(round(best_model.predict(sample2)[0]))
 print(round(best_model.predict(sample3)[0]))
@@ -1023,7 +417,7 @@ print(round(best_model.predict(sample5)[0]))
 
 
 ```python
-# Function to get user input for the 10 important features
+# Function to get user input for the features in model
 def get_user_input():
     
     sys_bp = int(input("Enter systolic blood pressure level (sys_bp): "))
@@ -1082,10 +476,6 @@ def get_user_input():
         print(f"{question.replace('_', ' ').title()}: {response}")
 
     return user_input
-    #return [sys_bp, num_meds, occup_danger, ls_danger, drinks_aweek ,
-       #major_surgery_num,cholesterol, bmi, sex, smoker, nic_other, cannabis,
-       #opioids, other_drugs, addiction, diabetes, hds, asthma, immune_defic,
-       #family_cancer, family_heart_disease, family_cholesterol]
 ```
 
 
@@ -1108,12 +498,6 @@ def preprocess_input(user_input):
 
      # Ensure all the columns are in the same order as the model expects
     df_input_encoded = df_input_encoded.reindex(columns=model.get_booster().feature_names, fill_value=0)
-
-    # Check the data types of each column to identify numerical variables
-    #numerical_cols = df_input_encoded.select_dtypes(include=['number']).columns.tolist()
-    #df_input_encoded[numerical_cols] = scaler.fit_transform(df_input_encoded[numerical_cols])
-    #
-    print(df_input_encoded.columns)
 
     return df_input_encoded
 
