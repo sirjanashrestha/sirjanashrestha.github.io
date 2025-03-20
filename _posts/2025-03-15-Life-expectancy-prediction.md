@@ -500,8 +500,6 @@ def preprocess_input(user_input):
     df_input_encoded = df_input_encoded.reindex(columns=model.get_booster().feature_names, fill_value=0)
 
     return df_input_encoded
-
-
 ```
 
 ```python
